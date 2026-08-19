@@ -20,18 +20,21 @@ graph TD
         Slot7 --- Fed1
 
         subgraph TriggerGroup ["Trigger (Cassettes)"]
-            Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123"]
+            Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123<br/>Connected to DTH Fed 1"]
             Slot4["Slot 4: Serenity (Trigger)<br/>CTRL: 192.168.0.104<br/>IPMC: 192.168.0.124<br/>Not connected to DTH"]
+            Slot3 ~~~ Slot4
         end
 
         subgraph DAQGroup ["DAQ (Cassettes)"]
             Slot10["Slot 10: Serenity (DAQ)<br/>CTRL: 192.168.0.110<br/>IPMC: 192.168.0.130<br/>Not connected to DTH"]
-            Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131"]
+            Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131<br/>Connected to DTH Fed 0"]
+            Slot10 ~~~ Slot 11
         end
 
         subgraph CosmicGroup ["Cosmic Ray Trigger"]
             Slot13["Slot 13: Serenity (Cosmic)<br/>CTRL: 192.168.0.113<br/>IPMC: 192.168.0.133<br/>Not connected to DTH"]
             Slot14["Slot 14: Serenity (Cosmic)<br/>CTRL: 192.168.0.114<br/>IPMC: 192.168.0.134<br/>Not connected to DTH"]
+            Slot13 ~~~ Slot14
         end
     end
 
