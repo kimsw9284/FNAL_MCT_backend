@@ -1,6 +1,6 @@
 ```mermaid
 graph TD
-    %% Gateway and Server
+    %% Network Infrastructure
     Gateway["Gateway: labc1"]
     DAQServer["Central DAQ PC: lab-daq-02<br/>192.168.0.100"]
 
@@ -31,13 +31,17 @@ graph TD
     %% Network & Physical Connections
     DAQServer -.-|Private Subnet| ATCA
 
-    %% Optical S-Link Connections
-    Slot3 ==>|Fed 0| Slot7
-    Slot4 ==>|Fed 0| Slot7
-    Slot10 ==>|Fed 1| Slot7
-    Slot11 ==>|Fed 1| Slot7
+    %% Optical S-Link / Fiber Mapping Connections
+    
+    %% Slot 3 (Trigger) -> DTH Fed 1
+    Slot3 ==>|DTH Fed 1<br/>Fiber [1,12] ➔ [1,12]| Slot7
 
-    %% Disconnected Link
+    %% Slot 11 (DAQ) -> DTH Fed 0 (3 Fiber Pairs)
+    Slot11 ==>|DTH Fed 0<br/>Fiber [5,5] ➔ [15,22]| Slot7
+    Slot11 ==>|DTH Fed 0<br/>Fiber [7,7] ➔ [14,23]| Slot7
+    Slot11 ==>|DTH Fed 0<br/>Fiber [9,9] ➔ [13,24]| Slot7
+
+    %% Disconnected / Future Links
     Slot7 -.-|Future 100G Ethernet| DAQServer
 
     %% Styling Definitions
