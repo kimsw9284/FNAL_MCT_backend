@@ -12,17 +12,17 @@ graph TD
 
         Slot7["Slot 7: DTH Hub<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
 
-        subgraph TriggerGroup ["Trigger Section"]
+        subgraph TriggerGroup ["Trigger (Cassettes)"]
             Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123"]
             Slot4["Slot 4: Serenity (Trigger)<br/>CTRL: 192.168.0.104<br/>IPMC: 192.168.0.124"]
         end
 
-        subgraph DAQGroup ["DAQ Section"]
+        subgraph DAQGroup ["DAQ (Cassettes)"]
             Slot10["Slot 10: Serenity (DAQ)<br/>CTRL: 192.168.0.110<br/>IPMC: 192.168.0.130"]
             Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131"]
         end
 
-        subgraph CosmicGroup ["Cosmic Ray Trigger Section"]
+        subgraph CosmicGroup ["Cosmic Ray Trigger"]
             Slot13["Slot 13: Serenity (Cosmic)<br/>CTRL: 192.168.0.113<br/>IPMC: 192.168.0.133"]
             Slot14["Slot 14: Serenity (Cosmic)<br/>CTRL: 192.168.0.114<br/>IPMC: 192.168.0.134"]
         end
@@ -42,7 +42,7 @@ graph TD
     Slot11 ==>|"DTH Fed 0<br/>Fiber [9,9] -> [13,24]"| Slot7
 
     %% Disconnected / Future Links
-    Slot7 -.-|"Future 100G Ethernet"| DAQServer
+    Slot7 -.-|"Future 100G Ethernet (not installed yet)"| DAQServer
 
     %% Styling Definitions
     classDef gateway fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
