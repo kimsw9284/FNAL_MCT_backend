@@ -10,7 +10,14 @@ graph TD
     subgraph ATCA ["ATCA Crate (Lab 6 - Rack 2)"]
         direction TB
 
+        %% DTH Board & Interfaces
         Slot7["Slot 7: DTH Hub<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
+        Fed0["DTH Fed 0"]
+        Fed1["DTH Fed 1"]
+
+        %% Internal DTH Wiring
+        Slot7 --- Fed0
+        Slot7 --- Fed1
 
         subgraph TriggerGroup ["Trigger (Cassettes)"]
             Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123"]
@@ -29,17 +36,17 @@ graph TD
     end
 
     %% Network & Physical Connections
-    DAQServer -.-|Private Subnet| ATCA
+    DAQServer -.-|"Private Subnet"| ATCA
 
-    %% Optical S-Link / Fiber Mapping Connections
+    %% Optical S-Link / Fiber Mapping Connections directly to FED Nodes
     
     %% Slot 3 (Trigger) -> DTH Fed 1
-    Slot3 ==>|"DTH Fed 1<br/>Fiber [1,12] -> [1,12]"| Slot7
+    Slot3 ==>|"Fiber [1,12] -> [1,12]"| Fed1
 
     %% Slot 11 (DAQ) -> DTH Fed 0 (3 Fiber Pairs)
-    Slot11 ==>|"DTH Fed 0<br/>Fiber [5,5] -> [15,22]"| Slot7
-    Slot11 ==>|"DTH Fed 0<br/>Fiber [7,7] -> [14,23]"| Slot7
-    Slot11 ==>|"DTH Fed 0<br/>Fiber [9,9] -> [13,24]"| Slot7
+    Slot11 ==>|"Fiber [5,5] -> [15,22]"| Fed0
+    Slot11 ==>|"Fiber [7,7] -> [14,23]"| Fed0
+    Slot11 ==>|"Fiber [9,9] -> [13,24]"| Fed0
 
     %% Disconnected / Future Links
     Slot7 -.-|"Future 100G Ethernet (not installed yet)"| DAQServer
@@ -55,7 +62,7 @@ graph TD
     %% Apply Classes
     class Gateway gateway;
     class DAQServer server;
-    class Slot7 dth;
+    class Slot7,Fed0,Fed1 dth;
     class Slot3,Slot4 trig;
     class Slot10,Slot11 daq;
     class Slot13,Slot14 cosmic;
