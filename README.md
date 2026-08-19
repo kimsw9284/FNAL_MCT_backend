@@ -16,8 +16,8 @@ graph TD
         Fed1["DTH Fed 1"]
 
         %% Internal DTH Wiring
-        Slot7 --- Fed0
-        Slot7 --- Fed1
+        Slot7 ~~~ Fed0
+        Slot7 ~~~ Fed1
 
         subgraph TriggerGroup ["Trigger (Cassettes)"]
             Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123<br/>Connected to DTH Fed 1"]
