@@ -34,15 +34,15 @@ graph TD
     %% Optical S-Link / Fiber Mapping Connections
     
     %% Slot 3 (Trigger) -> DTH Fed 1
-    Slot3 ==>|DTH Fed 1<br/>Fiber &#91;1,12&#93; -> &#91;1,12&#93;| Slot7
+    Slot3 ==>|"DTH Fed 1<br/>Fiber [1,12] -> [1,12]"| Slot7
 
     %% Slot 11 (DAQ) -> DTH Fed 0 (3 Fiber Pairs)
-    Slot11 ==>|DTH Fed 0<br/>Fiber &#91;5,5&#93; -> &#91;15,22&#93;| Slot7
-    Slot11 ==>|DTH Fed 0<br/>Fiber &#91;7,7&#93; -> &#91;14,23&#93;| Slot7
-    Slot11 ==>|DTH Fed 0<br/>Fiber &#91;9,9&#93; -> &#91;13,24&#93;| Slot7
+    Slot11 ==>|"DTH Fed 0<br/>Fiber [5,5] -> [15,22]"| Slot7
+    Slot11 ==>|"DTH Fed 0<br/>Fiber [7,7] -> [14,23]"| Slot7
+    Slot11 ==>|"DTH Fed 0<br/>Fiber [9,9] -> [13,24]"| Slot7
 
     %% Disconnected / Future Links
-    Slot7 -.-|Future 100G Ethernet| DAQServer
+    Slot7 -.-|"Future 100G Ethernet"| DAQServer
 
     %% Styling Definitions
     classDef gateway fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
