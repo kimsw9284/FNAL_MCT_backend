@@ -10,14 +10,21 @@ graph TD
     subgraph ATCA ["ATCA Crate (Lab 6 - Rack 2)"]
         direction TB
 
-        %% DTH Board & Interfaces
-        Slot7["Slot 7: DTH<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
-        Fed0["DTH Fed 0"]
-        Fed1["DTH Fed 1"]
+        %% DTH Subgraph tightly packing board + FEDs
+        subgraph DTHGroup["DTH Assembly"]
+            direction TB
+            Slot7["Slot 7: DTH<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
+        
+            subgroup FedGroup["DTH Front Panel Interfaces"]
+                direction LR
+                Fed0["DTH Fed 0"]
+                Fed1["DTH Fed 1"]
+            end
 
-        %% Internal DTH Wiring
-        Slot7 ~~~ Fed0
-        Slot7 ~~~ Fed1
+            %% Internal DTH Wiring
+            Slot7 --- Fed0
+            Slot7 --- Fed1
+        end
 
         subgraph TriggerGroup ["Trigger (Cassettes)"]
             Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123<br/>Connected to DTH Fed 1"]
