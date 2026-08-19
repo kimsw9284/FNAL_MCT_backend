@@ -11,11 +11,11 @@ graph TD
         direction TB
 
         %% DTH Subgraph tightly packing board + FEDs
-        subgraph DTHGroup["DTH Assembly"]
+        subgraph DTHGroup ["DTH Assembly"]
             direction TB
             Slot7["Slot 7: DTH<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
         
-            subgroup FedGroup["DTH Front Panel Interfaces"]
+            subgraph FedGroup ["DTH Front Panel Interfaces"]
                 direction LR
                 Fed0["DTH Fed 0"]
                 Fed1["DTH Fed 1"]
