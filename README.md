@@ -28,7 +28,7 @@ graph TD
         subgraph DAQGroup ["DAQ (Cassettes)"]
             Slot10["Slot 10: Serenity (DAQ)<br/>CTRL: 192.168.0.110<br/>IPMC: 192.168.0.130<br/>Not connected to DTH"]
             Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131<br/>Connected to DTH Fed 0"]
-            Slot10 ~~~ Slot 11
+            Slot10 ~~~ Slot11
         end
 
         subgraph CosmicGroup ["Cosmic Ray Trigger"]
