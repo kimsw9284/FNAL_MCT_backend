@@ -10,28 +10,32 @@ graph TD
     subgraph ATCA ["ATCA Crate (Lab 6 - Rack 2)"]
         direction TB
 
-        %% DTH Board & Interfaces
-        Slot7["Slot 7: DTH Hub<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
+        %% DTH Hub & Interfaces
+        Slot7["Slot 7: DTH<br/>CTRL: 192.168.0.107<br/>IPMC: 192.168.0.127"]
         Fed0["DTH Fed 0"]
         Fed1["DTH Fed 1"]
 
-        %% Internal DTH Wiring
+        %% Tight layout coupling (short connecting lines)
         Slot7 --- Fed0
         Slot7 --- Fed1
+        Fed0 ~~~ Fed1
 
         subgraph TriggerGroup ["Trigger (Cassettes)"]
-            Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123"]
-            Slot4["Slot 4: Serenity (Trigger)<br/>CTRL: 192.168.0.104<br/>IPMC: 192.168.0.124"]
+            Slot3["Slot 3: Serenity (Trigger)<br/>CTRL: 192.168.0.103<br/>IPMC: 192.168.0.123<br/>Connected to DTH Fed 1"]
+            Slot4["Slot 4: Serenity (Trigger)<br/>CTRL: 192.168.0.104<br/>IPMC: 192.168.0.124<br/>Not connected to DTH"]
+            Slot3 ~~~ Slot4
         end
 
         subgraph DAQGroup ["DAQ (Cassettes)"]
-            Slot10["Slot 10: Serenity (DAQ)<br/>CTRL: 192.168.0.110<br/>IPMC: 192.168.0.130"]
-            Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131"]
+            Slot10["Slot 10: Serenity (DAQ)<br/>CTRL: 192.168.0.110<br/>IPMC: 192.168.0.130<br/>Not connected to DTH"]
+            Slot11["Slot 11: Serenity (DAQ)<br/>CTRL: 192.168.0.111<br/>IPMC: 192.168.0.131<br/>Connected to DTH Fed 0"]
+            Slot10 ~~~ Slot11
         end
 
         subgraph CosmicGroup ["Cosmic Ray Trigger"]
-            Slot13["Slot 13: Serenity (Cosmic)<br/>CTRL: 192.168.0.113<br/>IPMC: 192.168.0.133"]
-            Slot14["Slot 14: Serenity (Cosmic)<br/>CTRL: 192.168.0.114<br/>IPMC: 192.168.0.134"]
+            Slot13["Slot 13: Serenity (Cosmic)<br/>CTRL: 192.168.0.113<br/>IPMC: 192.168.0.133<br/>Not connected to DTH"]
+            Slot14["Slot 14: Serenity (Cosmic)<br/>CTRL: 192.168.0.114<br/>IPMC: 192.168.0.134<br/>Not connected to DTH"]
+            Slot13 ~~~ Slot14
         end
     end
 
