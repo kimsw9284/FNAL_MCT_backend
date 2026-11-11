@@ -53,7 +53,7 @@ graph TD
     Slot11 ==>|"Fiber [9,9] -> [13,24]"| Fed0
 
     %% Disconnected / Future Links
-    Slot7 -.-|"Future 100G Ethernet (not installed yet)"| DAQServer
+    Slot7 -.-|"100G Ethernet"| DAQServer
 
     %% Styling Definitions
     classDef gateway fill:#2d3748,stroke:#4a5568,stroke-width:2px,color:#fff;
